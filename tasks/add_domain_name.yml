@@ -1,0 +1,6 @@
+---
+- name: Add Domain Name
+  ios_config:
+          lines:
+            - ip domain-name test1
+          

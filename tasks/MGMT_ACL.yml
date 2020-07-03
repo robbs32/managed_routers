@@ -1,0 +1,14 @@
+- name: Create Management Access List
+  ios_config:
+    lines:
+      - 10 permit ip 10.10.10.0 0.0.0.255 any log
+    parents: ip access-list extended MGMT
+    before: no ip access-list extended MGMT
+    match: exact
+
+- name: Apply ACL to VTY Line
+  ios_config:
+    authorize: yes
+    lines:
+      - access-class MGMT in
+    parents: line vty 0 4

@@ -1,0 +1,3 @@
+- name: Save Running Configuration when Modified
+  ios_config:
+    save_when: modified

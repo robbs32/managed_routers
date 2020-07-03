@@ -1,0 +1,15 @@
+- name: "Get Running Config"
+  ios_command:
+    commands: "show running-config"
+  register: sh_run_result
+
+- name: "Create config folder"
+  file:
+    path: "router_backups"
+    state: directory
+  run_once: true
+
+- name: "Write running config to file"
+  copy:
+    content: "{{ sh_run_result.stdout[0] }}\n"
+    dest: "router_backups/{{ inventory_hostname }}.txt"
