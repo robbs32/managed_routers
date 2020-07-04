@@ -1,0 +1,66 @@
+- name: Create sub-interfaces on GigabitEthernet2
+  ios_l3_interfaces:
+    config:
+      - name: gigabitethernet2.10
+      - name: gigabitethernet2.20
+      - name: gigabitethernet2.30
+      - name: gigabitethernet2.40
+      - name: gigabitethernet2.50
+    state: merged
+
+- name: Enable dot1q tags on interface GigabitEthernet2.10
+  ios_config:
+    lines:
+      - encapsulation dot1q 10
+    parents: interface gigabitethernet2.10
+
+- name: Enable dot1q tags on interface GigabitEthernet2.20
+  ios_config:    
+    lines:
+      - encapsulation dot1q 20
+    parents: interface gigabitethernet2.20
+    
+- name: Enable dot1q tags on interface GigabitEthernet2.30    
+  ios_config:  
+    lines:
+      - encapsulation dot1q 30
+    parents: interface gigabitethernet2.30
+
+- name: Enable dot1q tags on interface GigabitEthernet2.40    
+  ios_config:  
+    lines:
+      - encapsulation dot1q 40
+    parents: interface gigabitethernet2.40
+    
+- name: Enable dot1q tags on interface GigabitEthernet2.50
+  ios_config:  
+    lines:
+      - encapsulation dot1q 50
+    parents: interface gigabitethernet2.50
+
+- name: Create IP address on GigabitEthernet2 Sub Interfaces
+  ios_l3_interfaces: 
+    config: 
+      - name: gigabitethernet2.10
+        ipv4: 
+        - address: 192.168.10.1/24
+      - name: gigabitethernet2.20
+        ipv4:
+        - address: 192.168.20.1/24   
+      - name: gigabitethernet2.30
+        ipv4:
+        - address: 192.168.30.1/24
+      - name: gigabitethernet2.40
+        ipv4:
+        - address: 192.168.40.1/24 
+      - name: gigabitethernet2.50
+        ipv4:
+        - address: 192.168.50.1/24
+    state: merged
+
+- name: Configure interface description and bring interfaces up
+  ios_interfaces:
+    config:
+      - name: gigabitethernet2
+        description: Trunk to LAN
+        enabled: true

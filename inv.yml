@@ -6,4 +6,6 @@ all:
         R1:
         R2:
         R3:
-                              
+    router1:
+      hosts:
+        R1:
