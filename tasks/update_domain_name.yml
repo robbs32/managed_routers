@@ -2,5 +2,5 @@
 - name: Add Domain Name
   ios_config:
           lines:
-            - ip domain-name test1
+            - ip domain-name rob.com
           

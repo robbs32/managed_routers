@@ -1,0 +1,10 @@
+- name: Configure DNS
+  ios_system:
+    lookup_source: gigabitethernet1
+    lookup_enabled: yes
+
+- name: Configure name servers
+  ios_system:
+    name_servers:
+    - 8.8.8.8
+    - 1.1.1.1

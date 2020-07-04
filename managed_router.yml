@@ -4,9 +4,11 @@
   connection: network_cli 
   tasks:
   - include: tasks/backup.yml
-  - include: tasks/add_domain_name.yml
+  - include: tasks/update_domain_name.yml
   - include: tasks/MGMT_ACL.yml
   - include: tasks/create_sub_interfaces.yml
+  - include: tasks/DNS_config.yml
+  - include: tasks/NTP_config.yml
+  - include: tasks/banner.yml
   - include: tasks/save_config.yml
-
-
+  - include: tasks/post_backup.yml

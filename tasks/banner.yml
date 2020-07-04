@@ -1,0 +1,8 @@
+- name: Configure the login banner
+  ios_banner:
+    banner: login
+    text: |
+      *******************************************
+      *            This is the banner           *
+      *******************************************
+    state: present

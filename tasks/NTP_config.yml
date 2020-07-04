@@ -1,0 +1,5 @@
+- ios_ntp:
+    server: time.google.com
+    source_int: gigabitethernet1
+    logging: false
+    state: present
